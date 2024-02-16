@@ -1,20 +1,32 @@
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
-import PageBase from './pages/PageBase';
+import PageBase from './pages/base/PageBase';
 import HomePage from './pages/HomePage';
-import DemoPage from './pages/DemoPage';
+import MapPage from './pages/MapPage';
+import ErrorPage from './pages/ErrorPage';
+import ProfilePageBase from './pages/base/ProfilePageBase';
+import ChatPage from './pages/ChatPage';
+import ReviewPageBase from './pages/base/ReviewPageBase';
 
 
 function routes() {
+    const errorRoute = { path: '*', element: <ErrorPage /> };
+    const profileRoute = { path: 'profile/:username', element: <ProfilePageBase /> };
+    const reviewRoute = { path: 'reviews/:location', element: <ReviewPageBase /> };
+
     const router = createBrowserRouter([
             {
                 path: '/',
                 element: <PageBase />,
                 children: [
                     { index: true, element: <Navigate to='home' /> },
+                    errorRoute,
+                    profileRoute,
+                    reviewRoute,
                     { path: 'home', element: <HomePage /> },
-                    { path: 'demo', element: <DemoPage /> }
+                    { path: 'chat', element: <ChatPage /> },
+                    { path: 'map', element: <MapPage /> },
                 ]
             }
         ])
