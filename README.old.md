@@ -5,6 +5,7 @@ UI Features
 -Profile Page for each user
 -Purchasing reviews
 -Reviews Page
+-Chat Page
 
 Backend
 -Database(Graph Ql)
