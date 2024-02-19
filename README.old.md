@@ -13,3 +13,5 @@ Backend
 -Payment( Stripe API)
 -Chat Functionality(Kafka)
 -authentication service( aws cognito)
+
+Hosting; Kubernetes or AWS
