@@ -6,6 +6,7 @@ UI Features
 -Purchasing reviews
 -Reviews Page
 -Chat Page
+-authentication service( aws cognito)
 
 Backend
 -Database(Graph Ql)
