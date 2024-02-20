@@ -1,6 +1,7 @@
 # reality.com
 
 UI Features
+-Home Page
 -Map UI(Mapty, Google Maps api)
 -Profile Page for each user
 -Purchasing reviews
