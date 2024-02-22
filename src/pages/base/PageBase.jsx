@@ -7,7 +7,7 @@ function PageBase(props) {
 
     return(
         <div className="App">
-            <NavTabs tabs={['Home', 'Map', 'Chat']}>
+            <NavTabs tabs={['Home', 'Map', 'Chat','Profile']}>
                 <Outlet />
             </NavTabs>
         </div>

@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage';
 import ProfilePageBase from './pages/base/ProfilePageBase';
 import ChatPage from './pages/ChatPage';
 import ReviewPageBase from './pages/base/ReviewPageBase';
+import ProfileCard from './pages/ProfileCard';
 
 
 function routes() {
@@ -27,6 +28,7 @@ function routes() {
                     { path: 'home', element: <HomePage /> },
                     { path: 'chat', element: <ChatPage /> },
                     { path: 'map', element: <MapPage /> },
+                    {path : 'profile', element: <ProfileCard/>}
                 ]
             }
         ])
