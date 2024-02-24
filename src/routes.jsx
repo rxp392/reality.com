@@ -13,7 +13,13 @@ import ProfileCard from './pages/ProfileCard';
 
 function routes() {
     const errorRoute = { path: '*', element: <ErrorPage /> };
-    const profileRoute = { path: 'profile/:username', element: <ProfilePageBase /> };
+    const profileRoute = { 
+        path: 'profile', 
+        children: [
+            { index: true, element: <ProfileCard/> },
+            { path: ':username', element: <ProfilePageBase /> }
+        ]
+     };
     const reviewRoute = { path: 'reviews/:location', element: <ReviewPageBase /> };
 
     const router = createBrowserRouter([
@@ -27,8 +33,7 @@ function routes() {
                     reviewRoute,
                     { path: 'home', element: <HomePage /> },
                     { path: 'chat', element: <ChatPage /> },
-                    { path: 'map', element: <MapPage /> },
-                    {path : 'profile', element: <ProfileCard/>}
+                    { path: 'map', element: <MapPage /> }
                 ]
             }
         ])
