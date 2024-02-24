@@ -3,11 +3,11 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { useInfiniteQuery } from 'react-query';
 import ChatMessage from './ChatMessage';
 
-function ChatFeed({ fetchFunction }) {
+function ChatFeed({ fetchFunction, user }) {
     const fetchMessages = useCallback(async (pageParam) => {
-        const results = await fetchFunction(pageParam);
+        const results = await fetchFunction(pageParam, user);
         return { results, nextPage: pageParam + 1, totalPages: 1 };
-    }, [fetchFunction]);
+    }, [fetchFunction, user]);
 
     const {
         data,
@@ -15,7 +15,7 @@ function ChatFeed({ fetchFunction }) {
         isError,
         hasNextPage,
         fetchNextPage
-    } = useInfiniteQuery('messages', 
+    } = useInfiniteQuery(['messages', user], 
         ({ pageParam = 1 }) => fetchMessages(pageParam), 
         {
             refetchOnMount: true,
@@ -31,9 +31,8 @@ function ChatFeed({ fetchFunction }) {
                 ) : isError ? (
                         <p>There was an error</p>
                     ) : ((!!data && !!(data.pages) && !!(data.pages[0]) && !!(data.pages[0].results) && !!(data.pages[0].results[0])) ?
-                            <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage} className='chat-conversation'>
+                            <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage} className='chat-feed'>
                                 <>
-                                    <p>hi</p>
                                     {data.pages.map((page) => page.results.map(info => <ChatMessage key={info.timestamp} {...info} />))}
                                 </>
                             </InfiniteScroll>

@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import ChatFeed from './ChatFeed';
 
 function ConversationPage({ withUser, username }) {
 
-    const [pageContent, setPageContent] = useState()
-
-    useEffect(() => {
-        setPageContent(
-            <ChatFeed
-                fetchFunction={async (pageParam) => {
-                    return ([
-                        { sender: withUser, username: username, message: 'hi', timestamp: '1' },
-                        { sender: username, username: username, message: 'hello', timestamp: '2' }
-                    ]);
-                }}
-            />
-        )
-    }, [withUser, username]);
+    const fetchFunction = useCallback(async (pageParam, user) => {
+        return ([
+            { sender: user, username: username, message: 'hi', timestamp: '1' },
+            { sender: username, username: username, message: 'hello', timestamp: '2' }
+        ]);
+    }, [username]);
 
     return (
-        <>
-            {pageContent}
-        </>
+        <main className='conversation'>
+            <h2 className='header'>Conversation with {withUser}</h2>
+            <ChatFeed fetchFunction={fetchFunction} user={withUser} />
+        </main>
     );
 }
 
