@@ -21,6 +21,7 @@ function Conversation({ withUser, username }) {
         <main className='conversation'>
             <h2 className='header'>Conversation with {withUser}</h2>
             <ChatFeed fetchFunction={fetchFunction} user={withUser} />
+            <div className='send-chat'>chat bar</div>
         </main>
     );
 }
