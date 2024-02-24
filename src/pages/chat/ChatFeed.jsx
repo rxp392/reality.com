@@ -32,9 +32,7 @@ function ChatFeed({ fetchFunction, user }) {
                         <p>There was an error</p>
                     ) : ((!!data && !!(data.pages) && !!(data.pages[0]) && !!(data.pages[0].results) && !!(data.pages[0].results[0])) ?
                             <InfiniteScroll hasMore={hasNextPage} loadMore={fetchNextPage} className='chat-feed'>
-                                <>
-                                    {data.pages.map((page) => page.results.map(info => <ChatMessage key={info.timestamp} {...info} />))}
-                                </>
+                                {data.pages.map((page) => page.results.map(info => <ChatMessage key={info.timestamp} {...info} />))}
                             </InfiniteScroll>
                             :
                             <h3>Start chatting!</h3>
