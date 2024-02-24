@@ -1,5 +1,22 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .App-logo {
@@ -48,8 +65,9 @@
 .content {
   grid-row: 2;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -83,3 +101,34 @@
   background: linear-gradient(to right,rgba(255,255,255,0),rgba(255, 255, 255, .15));
 }
 
+.chat-page {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-conversation {
+  position: relative;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.message-container {
+  width: 100%;
+  position: relative;
+  height: fit-content;
+}
+
+.outgoing-chat {
+  position: absolute;
+  right: 0;
+}
+
+.incoming-chat {
+  position: absolute;
+  left: 0;
+}
