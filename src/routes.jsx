@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage';
 import ProfilePageBase from './pages/base/ProfilePageBase';
 import ChatPage from './pages/chat/ChatPage';
 import ReviewPageBase from './pages/base/ReviewPageBase';
+import ProfileCard from './pages/ProfileCard';
 
 
 function routes() {
@@ -25,8 +26,9 @@ function routes() {
                     profileRoute,
                     reviewRoute,
                     { path: 'home', element: <HomePage /> },
-                    { path: 'chat', element: <ChatPage username={'dummy user'}/> },
+                    { path: 'chat', element: <ChatPage /> },
                     { path: 'map', element: <MapPage /> },
+                    {path : 'profile', element: <ProfileCard/>}
                 ]
             }
         ])
