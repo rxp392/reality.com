@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './../../App.css';
+import './../../styles/App.css';
 import { Outlet } from 'react-router-dom';
 import NavTabs from './NavTabs';
 
 function PageBase(props) {
+    // eslint-disable-next-line
     const [userInfo, setUserInfo] = useState({username: 'user'});
 
     return(
