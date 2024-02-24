@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import ChatFeed from './ChatFeed';
 
-function ConversationPage({ withUser, username }) {
+function Conversation({ withUser, username }) {
 
     const fetchFunction = useCallback(async (pageParam, user) => {
         return ([
@@ -18,4 +18,4 @@ function ConversationPage({ withUser, username }) {
     );
 }
 
-export default ConversationPage;
+export default Conversation;

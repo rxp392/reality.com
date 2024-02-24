@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ConversationPage from './ConversationPage';
+import Conversation from './Conversation';
 import { useOutletContext } from 'react-router-dom';
 
 function ChatPage() {
@@ -16,7 +16,7 @@ function ChatPage() {
             {
                 (selectedChat == null) ?
                     <div>Select a chat</div> :
-                    <ConversationPage withUser={selectedChat} username={userInfo.username}/>
+                    <Conversation withUser={selectedChat} username={userInfo.username}/>
             }
         </div>
     );
