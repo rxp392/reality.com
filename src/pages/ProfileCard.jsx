@@ -6,7 +6,8 @@ import  {
   Text,
   Stack,
   SlideFade,
-  Badge}  from '@chakra-ui/react'
+  Badge}  from './@chakra-ui/react'
+import React from 'react';
 
 // import { useSession } from "next-auth/react";
 
