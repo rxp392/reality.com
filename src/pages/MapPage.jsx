@@ -20,7 +20,9 @@ function MapPage(props) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   });
   console.log(currentLat, currentLng)
+  // eslint-disable-next-line
   const [lng, setLng] = useState(currentLng);
+  // eslint-disable-next-line
   const [lat, setLat] = useState(currentLat);
 
 
@@ -78,8 +80,9 @@ function MapPage(props) {
       for (const marker of features) {
         const el = document.createElement('div');
         el.className = 'marker';
-        let add = map?.current ? new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).
-          addTo(map.current) : '';
+        // eslint-disable-next-line
+        let add = map?.current ? new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates)
+          .addTo(map.current) : '';
 
       }
     });
