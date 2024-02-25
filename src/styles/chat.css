@@ -31,7 +31,8 @@
 
 .conversation {
   display: grid;
-  grid-template-rows: 1fr 14fr 1fr;
+  grid-template-rows: 1fr 17fr 2fr;
+  max-height: 95vh;
   grid-column: 2;
 
   &>.header {
@@ -107,7 +108,20 @@
     }
   }
 
-  &>.send-chat {
+  &>.chat-input {
     grid-row: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2.5%;
+    max-lines: 1;
+
+    &>textarea.input {
+      width: 80%;
+      padding: 6px 12px;
+      border-radius: 2.5% / 50%;
+      resize: none;
+    }
   }
 }

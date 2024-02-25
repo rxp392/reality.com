@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import ChatFeed from './ChatFeed';
+import ChatInput from './ChatInput';
 
 function Conversation({ withUser, username }) {
 
@@ -21,7 +22,7 @@ function Conversation({ withUser, username }) {
         <main className='conversation'>
             <h2 className='header'>Conversation with {withUser}</h2>
             <ChatFeed fetchFunction={fetchFunction} user={withUser} />
-            <div className='send-chat'>chat bar</div>
+            <ChatInput withUser={withUser} username={username} />
         </main>
     );
 }
