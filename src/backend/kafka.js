@@ -1,34 +1,44 @@
-const {Kafka} = require('kafkajs')
-//require imports from node modules or gets from local relative path that is relative to __dirname
+const { Kafka, logLevel } = require('kafkajs');
+
 const kafka = new Kafka({
-    clientId: 'message-tracker',
-    brokers: ['localhost:9092']
-})
+  logLevel: logLevel.INFO,
+  brokers: ['localhost:9092'],
+  clientId: 'tests',
+});
 
-// const producer = kafka.producer();
-// producer.connect();
-// producer.send({
-//     topic: 'test-topic',
-//     messages:[
-//         {value : 'Hello KafkaJs for the fird time!'}
-//     ]
-// })
+async function run() {
+  const topic = 'test-topic';
 
-// producer.disconnect();
+//   const producer = kafka.producer();
+//   await producer.connect();
+//   await producer.send({
+//     topic,
+//     messages: [{ key: '1', value: 'TESTTTTTT VALUE' }],
+//   });
 
+//fromBeginning just defines the default behaviour if offset is not present
+  let numberMessage = 0;
+  const consumer = kafka.consumer({ groupId: 'consumer' });
+  await consumer.connect();
+  await consumer.subscribe({ topic, fromBeginning: true });
+  const promise = new Promise((resolve) => {
+    consumer.run({
+      eachMessage: async (mesageData) => {
+        console.log(`got message ${numberMessage++} offset ${mesageData.message.offset}`);
+        console.log(mesageData.message.value.toString());
+        resolve(true);
+      },
+    });
+  });
 
-//kafka consumers part of a consumer group
-//if there are more consumers than partitions some may be idle
-//if there are multiple consumers they may only read data from some parititons
-const consumer = kafka.consumer({groupId : 'test-consumer'})
-consumer.connect();
-consumer.subscribe({topic: 'test-topic' , fromBeginning : true});
+  await promise;
 
-consumer.run({
-    eachMessage: async ({topic,partition,message,...rest}) => 
-    {
-        console.log('hello',{
-            value: message.value.toString(),
-        })
-    }
-})
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+
+//   await producer.disconnect();
+  await consumer.disconnect();
+}
+
+run()
