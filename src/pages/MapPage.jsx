@@ -1,13 +1,13 @@
 import React from 'react';
 
-function DemoPage(props) {
+function MapPage(props) {
     return(
         <div>
             <p>
-                this is a different page.
+                This is a map page.
             </p>
         </div>
     );
 }
 
-export default DemoPage;
+export default MapPage;

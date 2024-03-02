@@ -1,12 +1,15 @@
 import React from 'react';
-import './../App.css';
+import './../../App.css';
 import { Outlet } from 'react-router-dom';
+import NavTabs from './NavTabs';
 
 function PageBase(props) {
 
     return(
         <div className="App">
-            <Outlet />
+            <NavTabs tabs={['Home', 'Map', 'Chat']}>
+                <Outlet />
+            </NavTabs>
         </div>
     );
 }
