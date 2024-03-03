@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useInfiniteQuery } from 'react-query';
+import InfiniteScroll from 'react-infinite-scroller';
 
 function GenericFeed({ fetchFunction, fetchFuncName, dependentInfo, className, resultMapping, emptyMsg, reversed }) {
         
