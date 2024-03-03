@@ -4,12 +4,12 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import PageBase from './pages/base/PageBase';
 import HomePage from './pages/HomePage';
 import MapPage from './pages/MapPage';
-import UnknownPage from './pages/UnknownPage';
+import UnknownPage from './pages/exception/UnknownPage';
 import ProfilePageBase from './pages/base/ProfilePageBase';
 import ChatPage from './pages/chat/ChatPage';
 import ReviewPageBase from './pages/base/ReviewPageBase';
 import ProfileCard from './pages/ProfileCard';
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/exception/ErrorPage';
 
 
 function routes() {
