@@ -8,7 +8,7 @@ function PageBase(props) {
     const [userInfo, setUserInfo] = useState({username: 'user'});
 
     return(
-        <div className="App">
+        <div className='App'>
             <NavTabs tabs={['Home', 'Map', 'Chat', 'Profile']}>
                 <Outlet context={{userInfo: userInfo}} />
             </NavTabs>
