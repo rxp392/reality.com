@@ -12,6 +12,7 @@ function ChatFeed({ fetchFunction, user }) {
             className={'chat-feed'}
             resultMapping={info => <ChatMessage key={info.timestamp} {...info} />}
             emptyMsg={'Start chatting!'}
+            reversed={true}
         />
     );
 }

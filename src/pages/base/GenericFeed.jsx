@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GenericFeed({ fetchFunction, fetchFuncName, dependentInfo, className, resultMapping, emptyMsg }) {
+function GenericFeed({ fetchFunction, fetchFuncName, dependentInfo, className, resultMapping, emptyMsg, reversed }) {
         
     const fetchResults = useCallback(async (pageParam) => {
         const results = await fetchFunction(pageParam, dependentInfo);
@@ -32,7 +32,7 @@ function GenericFeed({ fetchFunction, fetchFuncName, dependentInfo, className, r
                             <InfiniteScroll 
                                 hasMore={hasNextPage} 
                                 loadMore={fetchNextPage} 
-                                reversed={true}
+                                reversed={reversed}
                                 className={className}
                             >
                                 {data.pages.map(page => page.results.map(info => resultMapping(info)))}
