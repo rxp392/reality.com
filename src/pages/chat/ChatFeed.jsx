@@ -4,6 +4,7 @@ import { useInfiniteQuery } from 'react-query';
 import ChatMessage from './ChatMessage';
 
 function ChatFeed({ fetchFunction, user }) {
+    
     const fetchMessages = useCallback(async (pageParam) => {
         const results = await fetchFunction(pageParam, user);
         return { results, nextPage: pageParam + 1, totalPages: 1 };
