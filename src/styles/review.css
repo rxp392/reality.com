@@ -1,0 +1,49 @@
+.review-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.review-view {
+    width: 50vw; /* TODO: make this auto based on image height*/
+    aspect-ratio: 16 / 9;
+    margin: 2.5vw;
+    background-color: red;
+    color: white;
+    font-size: 10rem;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+
+    &>.header {
+        display: grid;
+        grid-template-rows: 50% 50%;
+
+        &>.pic {
+            /* There should probably be some global properties shared across all profile pics displayed on the site. This area should only be for review-specific settings */
+            grid-row: 1 / -1;
+            border-radius: 50%;
+        }
+
+        &>.info {
+            grid-row: 1;
+        }
+
+        &>.stars {
+            grid-row: 2;
+        }
+    }
+
+    &>.body {
+        max-height: max-content;
+        max-width: max-content;
+        min-height: min-content;
+        min-width: min-content;
+        height: fit-content;
+        width: fit-content;
+    }
+}

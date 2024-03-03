@@ -7,7 +7,7 @@ import MapPage from './pages/MapPage';
 import UnknownPage from './pages/exception/UnknownPage';
 import ProfilePageBase from './pages/base/ProfilePageBase';
 import ChatPage from './pages/chat/ChatPage';
-import ReviewPageBase from './pages/base/ReviewPageBase';
+import ReviewPageBase from './pages/reviews/ReviewPage';
 import ProfileCard from './pages/ProfileCard';
 import ErrorPage from './pages/exception/ErrorPage';
 
