@@ -80,7 +80,7 @@ function MapPage(props) {
       for (const marker of features) {
         const el = document.createElement('div');
         el.className = 'marker';
-        // eslint-disable-next-line
+
         let add = map?.current ? new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates)
           .addTo(map.current) : '';
 
@@ -89,9 +89,8 @@ function MapPage(props) {
 
 
 
-  return (<div>
-    <div ref={mapContainer} className="map-container" />
-  </div>
+  return (
+      <div ref={mapContainer} className="map-container" />
   );
 
 
