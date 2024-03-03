@@ -16,4 +16,4 @@ function PageBase(props) {
     );
 }
 
-export default PageBase
+export default PageBase;
