@@ -81,6 +81,7 @@ function MapPage(props) {
         const el = document.createElement('div');
         el.className = 'marker';
 
+        // eslint-disable-next-line
         let add = map?.current ? new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates)
           .addTo(map.current) : '';
 

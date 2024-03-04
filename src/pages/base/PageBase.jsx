@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './../../styles/App.css';
 import { Outlet } from 'react-router-dom';
-import NavTabs from './NavTabs';
+import SiteHeader from './SiteHeader';
 
 function PageBase(props) {
     // eslint-disable-next-line
@@ -9,9 +9,10 @@ function PageBase(props) {
 
     return(
         <div className='App'>
-            <NavTabs tabs={['Home', 'Map', 'Chat', 'Profile']}>
+            <SiteHeader tabs={['Home', 'Map', 'Chat', 'Profile']} />
+            <div className='content'>
                 <Outlet context={{userInfo: userInfo}} />
-            </NavTabs>
+            </div>
         </div>
     );
 }

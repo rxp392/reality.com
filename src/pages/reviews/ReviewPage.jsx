@@ -11,7 +11,7 @@ function ReviewPage(props) {
 
     return (
         <div className='review-page'>
-            <text>{`Viewing reviews for: ${location}`}</text>
+            <div>{`Viewing reviews for: ${location}`}</div>
             <div className='review-view'>
                 {/* https://developers.google.com/maps/documentation/streetview/?_gl=1*1py5yxj*_ga*NzU2NjE2NjYzLjE3MDk1MDQwMjU.*_ga_NRWSTWS78N*MTcwOTUwNDAyNS4xLjEuMTcwOTUwNDAzOS4wLjAuMA.. */}
                 Streetview here?
