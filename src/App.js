@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
-import {  QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import routes from './routes';
 
