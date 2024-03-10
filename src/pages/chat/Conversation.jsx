@@ -26,7 +26,7 @@ function Conversation({ withUser, username }) {
             <GenericFeed 
                 fetchFunction={fetchFunction} 
                 fetchFuncName={'messages'} 
-                dependentInfo={user} 
+                dependentInfo={withUser} 
                 className={'chat-feed'}
                 resultMapping={info => <ChatMessage key={info.timestamp} {...info} />}
                 emptyMsg={'Start chatting!'}
