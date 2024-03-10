@@ -10,12 +10,10 @@ function ChatInput({withUser, username}) {
         alert(`Sent: ${message}`);
         setChatMessage('');
         setSending(false);
-    }, [setChatMessage, setSending/* withUser, username */]);
+    }, [setChatMessage, setSending/*, withUser, username */]);
 
     return(
-        <div
-            className='chat-input'
-        >
+        <div className='chat-input'>
             <textarea 
                 className='input'
                 placeholder='Type a message' 

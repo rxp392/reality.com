@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
-import ChatFeed from './ChatFeed';
 import ChatInput from './ChatInput';
+import ChatMessage from './ChatMessage';
+import GenericFeed from '../base/GenericFeed';
+
 
 function Conversation({ withUser, username }) {
 
@@ -21,7 +23,15 @@ function Conversation({ withUser, username }) {
     return (
         <main className='conversation'>
             <h2 className='header'>Conversation with {withUser}</h2>
-            <ChatFeed fetchFunction={fetchFunction} user={withUser} />
+            <GenericFeed 
+                fetchFunction={fetchFunction} 
+                fetchFuncName={'messages'} 
+                dependentInfo={user} 
+                className={'chat-feed'}
+                resultMapping={info => <ChatMessage key={info.timestamp} {...info} />}
+                emptyMsg={'Start chatting!'}
+                reversed={true}
+            />
             <ChatInput withUser={withUser} username={username} />
         </main>
     );
