@@ -3,11 +3,6 @@ html {
   height: 100%;
 }
 
-body {
-  width: 100%;
-  height: 100%;
-}
-
 #root {
   width: 100%;
   height: 100%;
@@ -18,38 +13,26 @@ body {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 9vh 91vh;
+  grid-template-rows: 5vh 95vh;
 
   &>.header {
     grid-row: 1;
     width: 100%;
     height: 100%;
-    font-size: calc(12px + 2vmin);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     color: #000000;
-
-    &>.search {
-      height: 6vh;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0 1vw;
-
-      &>.search-bar {
-        max-width: 20%;
-
-        .react-search-box-dropdown {
-          z-index: 2;
-        }
-      }
-    }
 
     &>.tabs {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      height: 3vh;
-      max-height: 3vh;
+      height: 4vh;
+      max-height: 4vh;
+      margin: 0.5vh 0;
+      font-size: 0.8rem;
 
       .tab-button {
         width: 100%;
@@ -76,6 +59,22 @@ body {
     align-items: center;
     height: 100%;
     padding: 0;
+
+    &>.search {
+      height: 6vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 1vw;
+
+      &>.search-bar {
+        width: 20%;
+
+        .react-search-box-dropdown {
+          z-index: 2;
+        }
+      }
+    }
   }
 }
 
@@ -92,9 +91,8 @@ body {
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  width: 100%;
+  height: 100%;
   width: 100%;
   flex-direction: column;
   align-items: center;
