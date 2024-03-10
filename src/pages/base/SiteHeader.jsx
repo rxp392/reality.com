@@ -8,7 +8,7 @@ function SiteHeader({ tabs }) {
 
     return (
         <div className='header'>
-            <SearchHeader />
+            <span>Reality.com</span>
             <NavTabs tabs={tabs} path={path} />
         </div>
     );
@@ -20,11 +20,12 @@ function SearchHeader(props) {
 
     return (
         <div className='search'>
-            <span>Reality.com</span> {/* we can style the title here */}
+             {/* we can style the title here */}
             <div className='search-bar'>
                 <ReactSearchBox
                     data={[{ key: 'hi', value: 'hi' }] /* need real data at some point */}
                     onSelect={record => navigate(`reviews/${record.item.value}`)}
+                    placeholder='Search for an address'
                     clearOnSelect={true}
                 />
             </div>
@@ -49,9 +50,9 @@ function NavTabs({ tabs, path }) {
     ));
 
     return (
-        <div className='tabs'>
+        <span className='tabs'>
             {pathTabs}
-        </div>
+        </span>
     );
 }
 
