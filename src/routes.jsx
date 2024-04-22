@@ -10,6 +10,8 @@ import ChatPage from './pages/chat/ChatPage';
 import ReviewPageBase from './pages/base/ReviewPageBase';
 import ProfileCard from './pages/ProfileCard';
 import ErrorPage from './pages/ErrorPage';
+import PricingPage from './backend/payments/stripe';
+
 
 
 function routes() {
@@ -35,7 +37,8 @@ function routes() {
                     reviewRoute,
                     { path: 'home', element: <HomePage /> },
                     { path: 'chat', element: <ChatPage /> },
-                    { path: 'map', element: <MapPage /> }
+                    { path: 'map', element: <MapPage /> },
+                    { path: 'payments', element: <PricingPage/> }
                 ]
             }
         ])

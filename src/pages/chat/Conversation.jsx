@@ -1,22 +1,37 @@
 import React, { useCallback } from 'react';
 import ChatFeed from './ChatFeed';
 import ChatInput from './ChatInput';
+import { collection ,getFirestore, query, doc,limitToLast, onSnapshot,where,orderBy,updateDoc} from "firebase/firestore";
 
-function Conversation({ withUser, username }) {
+let messages = {
+};
+
+function Conversation({ withUser, username}) {
 
     const fetchFunction = useCallback(async (pageParam, user) => {
-        const messages = {
-            rupika: [
-                { sender: user, username: username, message: 'hi it\'s rupika', timestamp: '1' },
-                { sender: username, username: username, message: 'hello', timestamp: '2' }
-            ],
-            zach: [
-                { sender: user, username: username, message: 'i think you should kys', timestamp: '1' },
-                { sender: username, username: username, message: 'thank you for your kind words', timestamp: '2' }
-            ]
-        };
-        return (messages[user]);
-    }, [username]);
+        //TODO: fix bugs with the display of the messages why is it constantly retrieving, not displaying on render , prettify chat and add online button and user face and can add more chat to the bar
+        console.log(withUser,username)
+        const db = getFirestore();
+        const q = query(collection(db,`${withUser}`),orderBy("timestamp"))
+        let userrr = undefined;
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            messages = {}
+            snapshot.docChanges().forEach((change) => {
+                if ( change.type === "added") {
+                    console.log(change.doc.data())
+                    let sn = change.doc.data()
+                    const a = messages[sn.reciever] === undefined ? messages[sn.reciever] = []:''
+                    console.log(
+                        messages[sn.reciever]
+                    )
+                    messages[sn.reciever].push({ sender: sn.sender1, reciever: sn.reciever, message: sn.message, timestamp:sn.timestamp})  
+                }});
+            
+          });
+          console.log(messages)
+          return (messages[withUser]);
+
+    }, [withUser]);
 
     return (
         <main className='conversation'>

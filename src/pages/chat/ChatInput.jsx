@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { sendMessage } from '../../firebase';
 
 function ChatInput({withUser, username}) {
 
@@ -6,8 +7,8 @@ function ChatInput({withUser, username}) {
     const [sending, setSending] = useState(false);
     const sendChat = useCallback(async (message) => {
         setSending(true);
-        await new Promise(r => setTimeout(r, 2000));
-        alert(`Sent: ${message}`);
+        console.log(withUser,username)
+        sendMessage(withUser,username, message);
         setChatMessage('');
         setSending(false);
     }, [setChatMessage, setSending/* withUser, username */]);

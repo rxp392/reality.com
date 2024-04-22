@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import NotifyComponent from '../Notifications.jsx';
 function NavTabs({ tabs, children }) {
     const path = useLocation().pathname.toLowerCase();
+    //navigate routes
     const navigate = useNavigate();
     
     const pathTabs = tabs.map(tab => (
@@ -16,14 +17,15 @@ function NavTabs({ tabs, children }) {
         </button>
     ));
 
-    return (
+    return ( 
         <>
             <div className='tabs'>
                 {pathTabs}
+                <NotifyComponent/>
             </div>
             <div className='content'>
                 {children}
-            </div>          
+            </div>    
         </>
     );
 }

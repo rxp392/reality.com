@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 function ConversationSelection({ username, selectionFunction }) {
 
-    const fetchFunction = (username) => ['rupika', 'zach']; // Replace with real backend access for user's conversations
+    const fetchFunction = (username) => ['rupika', 'zach','user']; // Replace with real backend access for user's conversations
 
     const conversationList = useMemo(() => {
         return fetchFunction(username);
@@ -11,7 +11,7 @@ function ConversationSelection({ username, selectionFunction }) {
     return (
         <menu className='conversation-select'>
             {conversationList.map(entry => <ConversationButton key={entry} name={entry} selectionFunction={selectionFunction} />)}
-        </menu>
+        </menu>        
     );
 }
 
