@@ -1,13 +1,18 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './../../styles/review.css';
+
 import GenericFeed from '../base/GenericFeed';
 import Review from './Review';
+import './../../styles/review.css';
 
 function ReviewPage(props) {
 
     const location = useParams().location;
-    const fetchFunction = async () => {}; //Make this do something later
+    const fetchFunction = async (pageParam, info) => {
+        return [
+            {reviewerInfo: { pic: 'pic', reviewer: 'me', stars: 4, count: 5 }, text: 'terrible place', likeCount: 2}
+        ];
+    }; //Make this do something later
 
     return (
         <div className='review-page'>

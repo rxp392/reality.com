@@ -27,35 +27,35 @@ function MapPage(props) {
 
 
 
-  // datasetsClient.createDataset({
-  //     name: 'reviewpointerfinal',
-  //     description: 'Holds all the reviews needed for marking'
-  //   })
-  //     .send()
-  //     .then(response => {
-  //       const datasetMetadata = response.body;
-  //       console.log(datasetMetadata)
-  //     }
-  //     );
+  datasetsClient.createDataset({
+      name: 'reviewpointerfinal',
+      description: 'Holds all the reviews needed for marking'
+    })
+      .send()
+      .then(response => {
+        const datasetMetadata = response.body;
+        console.log(datasetMetadata)
+      }
+      );
 
 
-  // datasetsClient.putFeature({
-  //     datasetId: 'clsv6iouw088r1zqbd6dc7219',
-  //     featureId: 'Chicago City',
-  //     feature: {
-  //         "type": "Feature",
-  //         "properties": { "name": "San Fran, Cali" },
-  //         "geometry": {
-  //           "type": "Point",
-  //           "coordinates": [-122.414, 37.776]
-  //         }
-  //       }
-  //     })
-  //       .send()
-  //       .then(response => {
-  //         const feature = response.body;
-  //       });
-  // ;
+  datasetsClient.putFeature({
+      datasetId: 'clsv6iouw088r1zqbd6dc7219',
+      featureId: 'Chicago City',
+      feature: {
+          "type": "Feature",
+          "properties": { "name": "San Fran, Cali" },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-122.414, 37.776]
+          }
+        }
+      })
+        .send()
+        .then(response => {
+          const feature = response.body;
+        });
+  ;
 
   useEffect(() => {
     if (map.current) return;

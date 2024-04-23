@@ -39,7 +39,7 @@ function ReviewProfileInfo({ reviewer, count }) {
         <span className='info'>
             {/* username */}
             {/* spacer */}
-            {/* review count */}
+            {`${count} reviews`}
         </span>
     );
 }
@@ -57,7 +57,7 @@ function ReviewBody({ text }) {
 
     return (
         <div className='body'>
-            {/* text */}
+            {text}
         </div>
     );
 }
